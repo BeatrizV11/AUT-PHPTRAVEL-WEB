@@ -1,19 +1,24 @@
 package curso.treinamento.steps;
 
+import org.junit.Assert;
+
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
+import curso.treinamento.pages.HomePage;
 import curso.treinamento.pages.LoginPage;
 import curso.treinamento.setup.Hooks;
 
 public class LoginSteps2 {
 	
 	private LoginPage loginPage = new LoginPage (Hooks.getDriver());
+	private HomePage homePage = new HomePage (Hooks.getDriver());
 	
 	@Dado("que eu esteja na tela de login")
-	public void que_eu_deseje_logar_no_sistema() {
+	public void que_eu_deseje_logar_no_sistema() throws InterruptedException {
 		
-		//Fazer validação
+		//Thread.sleep(3000);
+		Assert.assertTrue("Página Login não foi apresentada", loginPage.validar_pagina());
 		
 	}
 
@@ -28,6 +33,9 @@ public class LoginSteps2 {
 	@Então("sou autenticado com sucesso")
 	public void sou_autenticado_com_sucesso() throws InterruptedException {
 	
+		//Thread.sleep(3000);
+		Assert.assertTrue("Página Principal não encontrada", homePage.validar_pagina());
+		
 	}
 
 	@Então("é apresentada a mensagem \"The Email field must contain a valid email address.\"")
