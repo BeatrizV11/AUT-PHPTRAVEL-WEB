@@ -12,4 +12,21 @@ public class Helper {
 		WebDriverWait aguardar = new WebDriverWait (Hooks.getDriver(), timeout);
 		aguardar.until(ExpectedConditions.visibilityOf(elemento));
 	}
+	
+	public static boolean elemento_existe(WebElement elemento, int timeout) {
+		
+		try {
+			aguardar_elemento(timeout, elemento);
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}	
+	}
+	
+	public static void aguardar_email_invalido(int timeout, WebElement elemento) {
+		WebDriverWait aguardar = new WebDriverWait (Hooks.getDriver(), timeout);
+		aguardar.until(ExpectedConditions.visibilityOf(elemento));
+	}	
 }

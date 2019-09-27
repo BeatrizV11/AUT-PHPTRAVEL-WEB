@@ -39,7 +39,8 @@ public class LoginSteps2 {
 	}
 
 	@Então("é apresentada a mensagem \"The Email field must contain a valid email address.\"")
-	public void é_apresentada_a_mensagem() throws InterruptedException {
+	public void é_apresentada_a_mensagem()  {
 		
+		Assert.assertTrue("Mensagem de email inválido não apresentada", loginPage.validar_email_invalido());
 	}	
 }
